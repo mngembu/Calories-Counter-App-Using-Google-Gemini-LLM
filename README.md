@@ -37,7 +37,7 @@
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/mngembu/Calories-Counter-App.git
+    git clone https://github.com/mngembu/Calories-Counter-App-Using-Google-Gemini-LLP.git
     cd Calories-Counter-App
     ```
 
@@ -72,6 +72,12 @@
 - python-dotenv
 - PyPDF2
 
+
+## Demo Images
+
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
 
 ## Challenges
 
