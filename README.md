@@ -37,8 +37,8 @@
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/calories-counter.git
-    cd calories-counter
+    git clone https://github.com/mngembu/Calories-Counter-App.git
+    cd Calories-Counter-App
     ```
 
 2. Create and activate a virtual environment:
@@ -49,14 +49,14 @@
 
 3. Install the required packages:
     ```bash
-    pip install -r requirements.txt
+    python -m pip install -r requirements.txt
     ```
 
 ## Usage
 
 1. Run the Streamlit app:
     ```bash
-    streamlit run app.py
+    streamlit run calories.py
     ```
 
 2. Open your web browser and go to `http://localhost:8501`.
@@ -89,17 +89,17 @@
 
 ## Acknowledgements
 
-Thanks to Google's Gemini LLM for providing the foundational language model.
-Special thanks to Krish Naik for his resourceful lectures.
+- Thanks to Google's Gemini LLM for providing the foundational language model.
+- Special thanks to Krish Naik for his resourceful teachings.
 
                                                        
 ## Contact
 
-If you have any questions, feel free to reach out to me at [ara.ngembu@yahoo.com].
-*Author: Mary Ara Ngembu*
+If you have any questions, feel free to reach out to me at ara.ngembu@yahoo.com.
+- *Author: Mary Ara Ngembu*
 
 
- ## Happy calorie counting!
+ ### Happy calorie counting!
 
 ---
 
