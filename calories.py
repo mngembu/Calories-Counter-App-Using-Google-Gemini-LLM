@@ -1,7 +1,4 @@
 from dotenv import load_dotenv
-
-load_dotenv() # this loads all the environment variables
-
 import streamlit as st
 import os
 import google.generativeai as genai
@@ -9,10 +6,11 @@ from PIL import Image
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
+load_dotenv() # this loads all the environment variables
 
 # Function to load Google Gemini flash API And get response
-def get_gemini_repsonse(input_prompt,image,user_prompt):
-    model=genai.GenerativeModel('gemini-1.5-flash')
+def get_gemini_reponse(input_prompt,image,user_prompt):
+    model=genai.GenerativeModel('gemini-1.5-pro-latest')
     response=model.generate_content([input_prompt,image[0],user_prompt])
     return response.text
 
@@ -36,10 +34,10 @@ def input_image_setup(uploaded_file):
     
 
 # Initializing the streamlit app
-st.set_page_config(page_title="Gemini Calories App")
-st.header("Gemini Calories Counter App")
-input=st.text_input("Ask any food-related question: ",key="input")
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+st.set_page_config(page_title="Gemini Calorie Counter App")
+st.header("Gemini Calorie Counter App")
+input=st.text_input("Ask any question related to your food: ",key="input")
+uploaded_file = st.file_uploader("Upload an image of your food", type=["jpg", "jpeg", "png"])
 image=""   
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
@@ -48,18 +46,20 @@ if uploaded_file is not None:
 
 submit=st.button("Submit & Process")
 
+st.write("App created by: Ara")
+
 
 # setting up the app's behavior
 input_prompt="""
-You are an expert nutritionist. You look at the food items from the image
-and calculate the total calories. Also, provide the details of every food item with calories intake
-is below format
+You are an expert nutritionist. 
+You should answer the question entered by the user in the input based on the uploaded image you see.
+You should also look at the food items found in the uploaded image and calculate the total calories. 
+Also, provide the details of every food item with calories intake in the format below:
 
                1. Item 1 - no of calories
                2. Item 2 - no of calories
                ----
                ----
-You should also answer the question entered by the user in the input Prompt based on the image you see
 
 """
 
@@ -67,7 +67,7 @@ You should also answer the question entered by the user in the input Prompt base
 # Once submit button is clicked
 if submit:
     image_data=input_image_setup(uploaded_file)
-    response=get_gemini_repsonse(input_prompt,image_data,input)
+    response=get_gemini_reponse(input_prompt,image_data,input)
     st.subheader("The Response is")
     st.write(response)
 
